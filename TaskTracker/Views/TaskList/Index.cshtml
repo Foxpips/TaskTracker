@@ -1,0 +1,36 @@
+﻿@model TaskTracker.Infrastructure.Entities.TaskListEntity
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/knockoutjs")
+}
+<div id="main">
+    <div class="jumbotron">
+        <div class="row" style="margin-bottom: 15px;">
+            @using (Html.BeginForm("Create","TaskList"))
+            {
+                  @Html.AntiForgeryToken()
+
+                <p>Create new TaskList:</p>
+                <div class="col-xs-10 col-md-4">
+                    @Html.LabelFor(model => model.Name)
+                    <input type="text" name="Name" />
+                    <input type="submit" class="btn btn-default" style="" />
+                </div>
+            }
+        </div>
+        <div class="row">
+            <div class="col-md-10">
+                <span style="color: green">
+                    @ViewBag.SaveUnitsMessage
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

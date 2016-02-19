@@ -1,0 +1,20 @@
+﻿@model TaskTracker.Infrastructure.Entities.TaskEntity
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/knockoutjs")
+}
+<div id="main">
+    <div class="jumbotron">
+        <div class="row" style="margin-bottom: 15px;">
+            @Html.ActionLink("Create new Task List", "Index", "TaskList", new { area = "" }, new { @class = "navbar-brand" })
+            @Html.ActionLink("View Task Lists", "ActiveTaskList", "TaskList", new { area = "" }, new { @class = "navbar-brand" })
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+﻿@model IEnumerable<TaskTracker.Infrastructure.Entities.TaskListEntity>
+
+@{
+    ViewBag.Title = "title";
+}
+
+<h2>Task List</h2>
+@foreach (var taskItem in Model)
+{
+    <div class="row">
+        <div class="col-md-10">
+            @taskItem.Id
+            @taskItem.Name
+            <a href="/Task/Index/@taskItem.Id">Add Task</a>
+            <a href="/Task/ActiveTasks/@taskItem.Id">View Tasks</a>
+            <a href="/TaskList/Delete/@taskItem.Id">Delete</a>
+        </div>
+    </div>
+}
+
+@if (!Model.Any())
+{<div>No TaskLists yet please create one...</div>
+      @Html.ActionLink("Create new Task List", "Index", "TaskList", new { area = "" }, new { @class = "navbar-brand" })
+}

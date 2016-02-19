@@ -1,0 +1,18 @@
+﻿@model IEnumerable<TaskTracker.Infrastructure.Entities.TaskEntity>
+
+@{
+    ViewBag.Title = "title";
+}
+
+<h2>Tasks</h2>
+@foreach (var taskItem in Model)
+{
+    <div class="row">
+        <div class="col-md-10">
+            @taskItem.Id
+            @taskItem.Name
+            @taskItem.StartDate.ToShortDateString()
+            @taskItem.EndDate.ToShortDateString()
+        </div>
+    </div>
+}
